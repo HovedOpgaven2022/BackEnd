@@ -4,6 +4,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thyrsoft.Photobooth.WebApi", "Thyrsoft.Photobooth.WebApi\Thyrsoft.Photobooth.WebApi.csproj", "{E6F13EA2-71F1-436A-8804-F20B29C3EF6E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{351E4DD9-5A40-4D40-BBA0-38473F1862DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5654D776-89F4-4187-8E8F-8D38B031AEEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thyrsoft.Photobooth.DataAcess", "Thyrsoft.Photobooth.DataAcess\Thyrsoft.Photobooth.DataAcess.csproj", "{86275EAD-1711-4C4C-9A78-7E18D7DC5153}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThyreSoft.Photobooth.Core", "ThyreSoft.Photobooth.Core\ThyreSoft.Photobooth.Core.csproj", "{16A25354-F1E7-42F4-A70A-ABA5B88DE15A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThyrSoft.Photobooth.Domain", "ThyrSoft.Photobooth.Domain\ThyrSoft.Photobooth.Domain.csproj", "{EFDC69FE-F854-4CC4-81B0-9820A233402A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,11 +21,26 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E6F13EA2-71F1-436A-8804-F20B29C3EF6E} = {55CE63C7-11D1-49C5-8142-C000C16FF25C}
+		{86275EAD-1711-4C4C-9A78-7E18D7DC5153} = {351E4DD9-5A40-4D40-BBA0-38473F1862DA}
+		{16A25354-F1E7-42F4-A70A-ABA5B88DE15A} = {5654D776-89F4-4187-8E8F-8D38B031AEEA}
+		{EFDC69FE-F854-4CC4-81B0-9820A233402A} = {5654D776-89F4-4187-8E8F-8D38B031AEEA}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E6F13EA2-71F1-436A-8804-F20B29C3EF6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E6F13EA2-71F1-436A-8804-F20B29C3EF6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6F13EA2-71F1-436A-8804-F20B29C3EF6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6F13EA2-71F1-436A-8804-F20B29C3EF6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86275EAD-1711-4C4C-9A78-7E18D7DC5153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86275EAD-1711-4C4C-9A78-7E18D7DC5153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86275EAD-1711-4C4C-9A78-7E18D7DC5153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86275EAD-1711-4C4C-9A78-7E18D7DC5153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16A25354-F1E7-42F4-A70A-ABA5B88DE15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A25354-F1E7-42F4-A70A-ABA5B88DE15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A25354-F1E7-42F4-A70A-ABA5B88DE15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A25354-F1E7-42F4-A70A-ABA5B88DE15A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFDC69FE-F854-4CC4-81B0-9820A233402A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFDC69FE-F854-4CC4-81B0-9820A233402A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFDC69FE-F854-4CC4-81B0-9820A233402A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFDC69FE-F854-4CC4-81B0-9820A233402A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
