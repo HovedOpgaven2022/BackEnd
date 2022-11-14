@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using ThyreSoft.Photobooth.Core.Models;
 
 namespace ThyrSoft.Photobooth.Domain.IRepositories;

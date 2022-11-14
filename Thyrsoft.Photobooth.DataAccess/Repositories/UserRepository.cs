@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+using System.Threading.Tasks;
 using MySqlConnector;
 using ThyreSoft.Photobooth.Core.Models;
 using ThyrSoft.Photobooth.Domain.IRepositories;
