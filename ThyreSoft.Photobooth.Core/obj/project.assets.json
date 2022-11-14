@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\stamp\\.nuget\\packages\\": {}
+    "/home/jagd/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\School Work\\PhotoBooth22\\ThyreSoft.Photobooth.Core\\ThyreSoft.Photobooth.Core.csproj",
+      "projectUniqueName": "/home/jagd/Hovedopgave/Backend/ThyreSoft.Photobooth.Core/ThyreSoft.Photobooth.Core.csproj",
       "projectName": "ThyreSoft.Photobooth.Core",
-      "projectPath": "C:\\School Work\\PhotoBooth22\\ThyreSoft.Photobooth.Core\\ThyreSoft.Photobooth.Core.csproj",
-      "packagesPath": "C:\\Users\\stamp\\.nuget\\packages\\",
-      "outputPath": "C:\\School Work\\PhotoBooth22\\ThyreSoft.Photobooth.Core\\obj\\",
+      "projectPath": "/home/jagd/Hovedopgave/Backend/ThyreSoft.Photobooth.Core/ThyreSoft.Photobooth.Core.csproj",
+      "packagesPath": "/home/jagd/.nuget/packages/",
+      "outputPath": "/home/jagd/Hovedopgave/Backend/ThyreSoft.Photobooth.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\stamp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/jagd/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.110/sdk/6.0.110/RuntimeIdentifierGraph.json"
       }
     }
   }

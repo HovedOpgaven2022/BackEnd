@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "/home/jagd/Hovedopgave/Backend/ThyrSoft.Photobooth.Domain/ThyrSoft.Photobooth.Domain.csproj": {}
+    "/home/jagd/Hovedopgave/Backend/Thyrsoft.Photobooth.DataAccess/Thyrsoft.Photobooth.DataAccess.csproj": {}
   },
   "projects": {
     "/home/jagd/Hovedopgave/Backend/ThyrSoft.Photobooth.Domain/ThyrSoft.Photobooth.Domain.csproj": {
@@ -82,6 +82,62 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.110/sdk/6.0.110/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jagd/Hovedopgave/Backend/Thyrsoft.Photobooth.DataAccess/Thyrsoft.Photobooth.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jagd/Hovedopgave/Backend/Thyrsoft.Photobooth.DataAccess/Thyrsoft.Photobooth.DataAccess.csproj",
+        "projectName": "Thyrsoft.Photobooth.DataAccess",
+        "projectPath": "/home/jagd/Hovedopgave/Backend/Thyrsoft.Photobooth.DataAccess/Thyrsoft.Photobooth.DataAccess.csproj",
+        "packagesPath": "/home/jagd/.nuget/packages/",
+        "outputPath": "/home/jagd/Hovedopgave/Backend/Thyrsoft.Photobooth.DataAccess/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jagd/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/jagd/Hovedopgave/Backend/ThyrSoft.Photobooth.Domain/ThyrSoft.Photobooth.Domain.csproj": {
+                "projectPath": "/home/jagd/Hovedopgave/Backend/ThyrSoft.Photobooth.Domain/ThyrSoft.Photobooth.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

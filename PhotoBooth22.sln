@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5654D776-89F4-4187-8E8F-8D38B031AEEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thyrsoft.Photobooth.DataAcess", "Thyrsoft.Photobooth.DataAcess\Thyrsoft.Photobooth.DataAcess.csproj", "{86275EAD-1711-4C4C-9A78-7E18D7DC5153}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thyrsoft.Photobooth.DataAccess", "Thyrsoft.Photobooth.DataAccess\Thyrsoft.Photobooth.DataAccess.csproj", "{86275EAD-1711-4C4C-9A78-7E18D7DC5153}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThyreSoft.Photobooth.Core", "ThyreSoft.Photobooth.Core\ThyreSoft.Photobooth.Core.csproj", "{16A25354-F1E7-42F4-A70A-ABA5B88DE15A}"
 EndProject

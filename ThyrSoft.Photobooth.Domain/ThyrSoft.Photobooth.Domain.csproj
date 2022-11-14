@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ThyreSoft.Photobooth.Core\ThyreSoft.Photobooth.Core.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -16,14 +16,10 @@
       "Microsoft.OpenApi/1.2.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
         }
       },
       "Swashbuckle.AspNetCore/6.2.3": {
@@ -44,14 +40,10 @@
           "Microsoft.OpenApi": "1.2.3"
         },
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -63,27 +55,19 @@
           "Swashbuckle.AspNetCore.Swagger": "6.2.3"
         },
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
         }
       },
       "Swashbuckle.AspNetCore.SwaggerUI/6.2.3": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -224,19 +208,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\stamp\\.nuget\\packages\\": {}
+    "/home/jagd/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\School Work\\PhotoBooth22\\Thyrsoft.Photobooth.WebApi\\Thyrsoft.Photobooth.WebApi.csproj",
+      "projectUniqueName": "/home/jagd/Hovedopgave/Backend/Thyrsoft.Photobooth.WebApi/Thyrsoft.Photobooth.WebApi.csproj",
       "projectName": "Thyrsoft.Photobooth.WebApi",
-      "projectPath": "C:\\School Work\\PhotoBooth22\\Thyrsoft.Photobooth.WebApi\\Thyrsoft.Photobooth.WebApi.csproj",
-      "packagesPath": "C:\\Users\\stamp\\.nuget\\packages\\",
-      "outputPath": "C:\\School Work\\PhotoBooth22\\Thyrsoft.Photobooth.WebApi\\obj\\",
+      "projectPath": "/home/jagd/Hovedopgave/Backend/Thyrsoft.Photobooth.WebApi/Thyrsoft.Photobooth.WebApi.csproj",
+      "packagesPath": "/home/jagd/.nuget/packages/",
+      "outputPath": "/home/jagd/Hovedopgave/Backend/Thyrsoft.Photobooth.WebApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\stamp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/jagd/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -283,7 +267,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.110/sdk/6.0.110/RuntimeIdentifierGraph.json"
       }
     }
   }
