@@ -1,3 +1,4 @@
+using MySqlConnector;
 using ThyreSoft.Photobooth.Core.Models;
 using ThyrSoft.Photobooth.Domain.IRepositories;
 
@@ -5,23 +6,44 @@ namespace Thyrsoft.Photobooth.DataAcess.Repositories;
 
 public class UserRepository : IUserRepository
 {
-    public User Login(string username, string password)
+    private const string Table = "";
+    private readonly MySqlConnection _connection = new(DbStrings.SqlConnection);
+    
+    public Task<User> Login(string username, string password)
     {
         throw new NotImplementedException();
     }
 
-    public User Create(User user)
+    public async Task<User> Create(User user)
+    {
+        User? ent = null;
+        string uuid = Guid.NewGuid().ToString();
+        await _connection.OpenAsync();
+
+        string sql = $"INSERT INTO {Table} (`uuid`, `username`, `email`, `password`)" +
+                     $" VALUES ('{uuid}', '{user.username}', '{user.email}', '{user.password}')";
+
+        await using var command = new MySqlCommand(sql, _connection);
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
+        
+        await _connection.CloseAsync();
+        return ent ?? throw new InvalidDataException("ERROR: User not created");
+    }
+
+    public Task<User> GetUserByUsername(string username)
     {
         throw new NotImplementedException();
     }
 
-    public User GetUserByUsername(string username)
+    public Task<User> GetUserByEmail(string email)
     {
         throw new NotImplementedException();
     }
-
-    public User GetUserByEmail(string email)
+    
+    private static User ReaderToEnt(MySqlDataReader reader)
     {
-        throw new NotImplementedException();
+        var ent = new User(reader.GetString(0),reader.GetString(1),reader.GetString(2), reader.GetString(3));
+        return ent;
     }
 }

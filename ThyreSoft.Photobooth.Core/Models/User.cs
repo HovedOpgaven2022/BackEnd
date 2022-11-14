@@ -2,8 +2,9 @@ namespace ThyreSoft.Photobooth.Core.Models;
 
 public class User
 {
-    public User(string username, string email, string password)
+    public User(string? id, string username, string email, string password)
     {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;

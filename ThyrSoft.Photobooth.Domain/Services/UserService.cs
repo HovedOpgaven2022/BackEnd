@@ -15,21 +15,21 @@ public class UserService : IUserService
     
     public User CreateUser(User user)
     {
-        return _repo.Create(user);
+        return _repo.Create(user).Result;
     }
 
     public User GetUserByUsername(string username)
     {
-        return _repo.GetUserByUsername(username);
+        return _repo.GetUserByUsername(username).Result;
     }
 
     public User GetUserByEmail(string email)
     {
-        return _repo.GetUserByEmail(email);
+        return _repo.GetUserByEmail(email).Result;
     }
 
     public User Login(string username, string password)
     {
-        return _repo.Login(username, password);
+        return _repo.Login(username, password).Result;
     }
 }
