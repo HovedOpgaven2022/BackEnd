@@ -9,9 +9,19 @@ public class UserRepository : IUserRepository
     private const string Table = "User";
     private readonly MySqlConnection _connection = new(DbStrings.SqlConnection);
     
-    public Task<User> Login(string username, string password)
+    public async Task<User> Login(string username, string password)
     {
-        throw new NotImplementedException();
+        User? ent = null;
+        await _connection.OpenAsync();
+
+        string sql = $"SELECT * FROM {Table} WHERE `username`='{username}' AND `password`='{password}';";
+        
+        await using var command = new MySqlCommand(sql, _connection);
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
+
+        await _connection.CloseAsync();
+        return ent ?? throw new InvalidDataException("ERROR: User not created");
     }
 
     public async Task<User> Create(User user)
@@ -21,7 +31,7 @@ public class UserRepository : IUserRepository
         await _connection.OpenAsync();
 
         string sql = $"INSERT INTO {Table} (`uuid`, `username`, `email`, `password`)" +
-                     $" VALUES ('{uuid}', '{user.username}', '{user.email}', '{user.password}')";
+                     $" VALUES ('{uuid}', '{user.username}', '{user.email}', '{user.password}');";
 
         await using var command = new MySqlCommand(sql, _connection);
         await using var reader = await command.ExecuteReaderAsync();
