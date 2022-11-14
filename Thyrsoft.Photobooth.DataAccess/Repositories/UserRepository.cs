@@ -6,7 +6,7 @@ namespace Thyrsoft.Photobooth.DataAcess.Repositories;
 
 public class UserRepository : IUserRepository
 {
-    private const string Table = "";
+    private const string Table = "User";
     private readonly MySqlConnection _connection = new(DbStrings.SqlConnection);
     
     public Task<User> Login(string username, string password)
@@ -43,7 +43,6 @@ public class UserRepository : IUserRepository
     
     private static User ReaderToEnt(MySqlDataReader reader)
     {
-        var ent = new User(reader.GetString(0),reader.GetString(1),reader.GetString(2), reader.GetString(3));
-        return ent;
+        return new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
     }
 }
