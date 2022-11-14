@@ -7,7 +7,9 @@ pipeline {
 
     stages {
         stage ("Building..."){
-            sh "dotnet build ."
+            steps {
+                sh "dotnet build ."
+            }
         }
 
 
