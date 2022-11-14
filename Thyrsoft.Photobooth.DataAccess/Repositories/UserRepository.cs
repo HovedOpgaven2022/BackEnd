@@ -34,7 +34,8 @@ public class UserRepository : IUserRepository
         await _connection.OpenAsync();
 
         string sql = $"INSERT INTO {Table} (`uuid`, `username`, `email`, `password`)" +
-                     $" VALUES ('{uuid}', '{user.username}', '{user.name}', '{user.password}');";
+                     $"VALUES ('{uuid}', '{user.username}', '{user.name}', '{user.password}');" +
+                     $"SELECT * FROM {Table} WHERE `uuid`='{uuid}'";
 
         await using var command = new MySqlCommand(sql, _connection);
         await using var reader = await command.ExecuteReaderAsync();
