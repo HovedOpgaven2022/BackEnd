@@ -57,6 +57,6 @@ public class UserRepository : IUserRepository
     
     private static User ReaderToEnt(MySqlDataReader reader)
     {
-        return new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
+        return new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(5));
     }
 }
