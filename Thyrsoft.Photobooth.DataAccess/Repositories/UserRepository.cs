@@ -33,8 +33,8 @@ public class UserRepository : IUserRepository
         string uuid = Guid.NewGuid().ToString();
         await _connection.OpenAsync();
 
-        string sql = $"INSERT INTO {Table} (`uuid`, `username`, `email`, `password`)" +
-                     $"VALUES ('{uuid}', '{user.username}', '{user.name}', '{user.password}');" +
+        string sql = $"INSERT INTO {Table} (`uuid`, `name`, `phone`, `username`, `password`)" +
+                     $"VALUES ('{uuid}', '{user.name}', '{user.Phone}', '{user.username}', '{user.password}');" +
                      $"SELECT * FROM {Table} WHERE `uuid`='{uuid}'";
 
         await using var command = new MySqlCommand(sql, _connection);
