@@ -45,24 +45,52 @@ public class UserRepository : IUserRepository
         return ent ?? throw new InvalidDataException("ERROR: User not created");
     }
 
-    public Task<User> GetUserByUsername(string username)
+    public async Task<User> GetUserByUsername(string username) 
     {
-        throw new NotImplementedException();
+        User? ent = null;
+        await _connection.OpenAsync();
+
+        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`)" +
+                     $"WHERE `username`='{username}'";
+
+        await using var command = new MySqlCommand(sql, _connection);
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
+        
+        await _connection.CloseAsync();
+        return ent ?? throw new InvalidDataException("ERROR: User not created");
     }
 
-    public Task<User> GetUserByEmail(string email)
+    public async Task<User> GetUserByName(string name)
     {
-        throw new NotImplementedException();
+        User? ent = null;
+        await _connection.OpenAsync();
+
+        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`)" +
+                     $"WHERE `name`='{name}'";
+
+        await using var command = new MySqlCommand(sql, _connection);
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
+        
+        await _connection.CloseAsync();
+        return ent ?? throw new InvalidDataException("ERROR: User not created");
     }
 
-    public Task<User> GetUserByName(string name)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<User> GetUserByPhone(string email)
+    public async Task<User> GetUserByPhone(string phone)
     {   
-        throw new NotImplementedException();
+        User? ent = null;
+        await _connection.OpenAsync();
+
+        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`)" +
+                     $"WHERE `phone`='{phone}'";
+
+        await using var command = new MySqlCommand(sql, _connection);
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
+        
+        await _connection.CloseAsync();
+        return ent ?? throw new InvalidDataException("ERROR: User not created");
     }
     
     private static User ReaderToEnt(MySqlDataReader reader)
