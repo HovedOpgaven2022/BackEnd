@@ -30,6 +30,11 @@ public class UserService : IUserService
 
     public User Login(string username, string password)
     {
-        return _repo.Login(username, password).Result;
+        var accountInfo = _repo.Login(username, password).Result;
+        if (accountInfo.username == username && accountInfo.password == password)
+        {
+            return accountInfo;
+        }
+        throw new Exception("We did a fuckyWucky");
     }
 }

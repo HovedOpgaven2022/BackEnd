@@ -24,7 +24,7 @@ public class UserRepository : IUserRepository
         while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
 
         await _connection.CloseAsync();
-        return ent ?? throw new InvalidDataException("ERROR: User not created");
+        return ent ?? throw new InvalidDataException("ERROR: User does not exist");
     }
 
     public async Task<User> Create(User user)

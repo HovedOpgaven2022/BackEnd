@@ -40,7 +40,14 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
         [HttpPost(nameof(Login))]
         public ActionResult<LoginDTO> Login([FromBody] LoginDTO loginDto)
         {
-            return Ok(_userService.Login(loginDto.AccountName, loginDto.Password));
+            try
+            {
+                return Ok(_userService.Login(loginDto.AccountName, loginDto.Password));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
         }
 
 
