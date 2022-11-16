@@ -9,5 +9,7 @@ public interface IUserRepository
     public Task<User> Create(User user);
     
     public Task<User> GetUserByUsername(string username);
-    public Task<User> GetUserByEmail(string email);
+    public Task<User> GetUserByName(string name);
+
+    public Task<User> GetUserByPhone(string email);
 }

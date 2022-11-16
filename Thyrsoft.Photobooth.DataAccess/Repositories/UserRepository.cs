@@ -51,6 +51,16 @@ public class UserRepository : IUserRepository
     }
 
     public Task<User> GetUserByEmail(string email)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<User> GetUserByName(string name)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<User> GetUserByPhone(string email)
     {   
         throw new NotImplementedException();
     }

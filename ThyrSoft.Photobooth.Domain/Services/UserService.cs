@@ -23,9 +23,9 @@ public class UserService : IUserService
         return _repo.GetUserByUsername(username).Result;
     }
 
-    public User GetUserByEmail(string email)
+    public User GetUserByEmail(string name)
     {
-        return _repo.GetUserByEmail(email).Result;
+        return _repo.GetUserByName(name).Result;
     }
 
     public User Login(string username, string password)
