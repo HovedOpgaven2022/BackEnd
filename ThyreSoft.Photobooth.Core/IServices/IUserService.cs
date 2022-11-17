@@ -7,5 +7,6 @@ public interface IUserService
     public User CreateUser(User user);
     public User GetUserByUsername(string username);
     public User GetUserByEmail(string email);
+    public User GetUserByPhone(string phone);
     public User Login(string username, string password);
 }

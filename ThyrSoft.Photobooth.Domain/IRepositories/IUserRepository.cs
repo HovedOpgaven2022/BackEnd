@@ -10,6 +10,6 @@ public interface IUserRepository
     
     public Task<User> GetUserByUsername(string username);
     public Task<User> GetUserByName(string name);
-
-    public Task<User> GetUserByPhone(string email);
+    public Task<User> GetUserByEmail(string email);
+    public Task<User> GetUserByPhone(string phone);
 }

@@ -93,6 +93,22 @@ public class UserRepository : IUserRepository
         return ent ?? throw new InvalidDataException("ERROR: User not created");
     }
     
+    public async Task<User> GetUserByEmail(string email)
+    {
+        User? ent = null;
+        await _connection.OpenAsync();
+
+        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`)" +
+                     $"WHERE `email`='{email}'";
+
+        await using var command = new MySqlCommand(sql, _connection);
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
+        
+        await _connection.CloseAsync();
+        return ent ?? throw new InvalidDataException("ERROR: User not created");
+    }
+    
     private static User ReaderToEnt(MySqlDataReader reader)
     {
         return new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(5));

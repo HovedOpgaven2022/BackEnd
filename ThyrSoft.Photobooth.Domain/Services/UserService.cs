@@ -22,12 +22,22 @@ public class UserService : IUserService
     {
         return _repo.GetUserByUsername(username).Result;
     }
-
-    public User GetUserByEmail(string name)
+    
+    public User GetUserByName(string username)
     {
-        return _repo.GetUserByName(name).Result;
+        return _repo.GetUserByName(username).Result;
     }
 
+    public User GetUserByEmail(string email)
+    {
+        return _repo.GetUserByEmail(email).Result;
+    }
+
+    public User GetUserByPhone(string phone)
+    {
+        return _repo.GetUserByPhone(phone).Result;
+    }
+    
     public User Login(string username, string password)
     {
         var accountInfo = _repo.Login(username, password).Result;
