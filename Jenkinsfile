@@ -56,7 +56,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh "docker compose --env-file config/dev.env down"
+                        sh "docker compose -f docker-compose.yml --env-file config/dev.env down"
                     }
                     finally {}
                 }
@@ -65,7 +65,7 @@ pipeline {
 
         stage ("Deploy Backend") {
             steps {
-                sh "docker compose --env-file config/dev.env up -d --build"
+                sh "docker compose -f docker-compose.yml --env-file config/dev.env up -d --build"
             }
         }
     }
