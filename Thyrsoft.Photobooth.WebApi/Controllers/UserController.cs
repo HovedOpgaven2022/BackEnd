@@ -50,6 +50,18 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
             }
         }
 
+        [HttpPost(nameof(GetSalt) + "/{username}")]
+        public ActionResult<string?> GetSalt(string username)
+        {
+            try
+            {
+                return Ok(_userService.GetSalt(username));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
     }
 }
