@@ -92,6 +92,21 @@ public class UserRepository : IUserRepository
         await _connection.CloseAsync();
         return ent ?? throw new InvalidDataException("ERROR: User not created");
     }
+
+    public async Task<string> GetSalt(string username)
+    {
+        string? res = null;
+        await _connection.OpenAsync();
+
+        string sql = $"SELECT `salt` FROM {Table} " +
+                     $"WHERE `username`={username}";
+
+        await using var command = new MySqlCommand(sql, _connection);
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync()) res = reader.GetString(0);
+
+        return res ?? throw new InvalidDataException("ERROR: User not found!");
+    }
     
     private static User ReaderToEnt(MySqlDataReader reader)
     {

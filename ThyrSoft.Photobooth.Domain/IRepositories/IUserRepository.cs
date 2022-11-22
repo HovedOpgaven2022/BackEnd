@@ -12,4 +12,5 @@ public interface IUserRepository
     public Task<User> GetUserByName(string name);
 
     public Task<User> GetUserByPhone(string email);
+    public Task<string> GetSalt(string username);
 }

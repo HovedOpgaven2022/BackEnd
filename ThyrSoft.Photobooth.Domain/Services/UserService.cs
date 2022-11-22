@@ -37,4 +37,9 @@ public class UserService : IUserService
         }
         throw new Exception("We did a fuckyWucky");
     }
+
+    public string GetSalt(string username)
+    {
+        return _repo.GetSalt(username).Result;
+    }
 }
