@@ -33,8 +33,8 @@ public class UserRepository : IUserRepository
         string uuid = Guid.NewGuid().ToString();
         await _connection.OpenAsync();
 
-        string sql = $"INSERT INTO {Table} (`uuid`, `name`, `phone`, `username`, `password`)" +
-                     $"VALUES ('{uuid}', '{user.name}', '{user.phone}', '{user.username}', '{user.password}');" +
+        string sql = $"INSERT INTO {Table} (`uuid`, `name`, `phone`, `username`, `password`, `salt`) " +
+                     $"VALUES ('{uuid}', '{user.name}', '{user.phone}', '{user.username}', '{user.password}', '{user.salt}'); " +
                      $"SELECT * FROM {Table} WHERE `uuid`='{uuid}'";
 
         await using var command = new MySqlCommand(sql, _connection);
@@ -50,7 +50,7 @@ public class UserRepository : IUserRepository
         User? ent = null;
         await _connection.OpenAsync();
 
-        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`)" +
+        string sql = $"SELECT * FROM {Table} " +
                      $"WHERE `username`='{username}'";
 
         await using var command = new MySqlCommand(sql, _connection);
@@ -66,7 +66,7 @@ public class UserRepository : IUserRepository
         User? ent = null;
         await _connection.OpenAsync();
 
-        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`)" +
+        string sql = $"SELECT * FROM {Table} " +
                      $"WHERE `name`='{name}'";
 
         await using var command = new MySqlCommand(sql, _connection);
@@ -82,7 +82,7 @@ public class UserRepository : IUserRepository
         User? ent = null;
         await _connection.OpenAsync();
 
-        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`)" +
+        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`, `salt`)" +
                      $"WHERE `phone`='{phone}'";
 
         await using var command = new MySqlCommand(sql, _connection);
