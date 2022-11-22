@@ -26,7 +26,7 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
         {
             try
             {
-                var userInfo = new User(userDto.Id, userDto.AccountName, userDto.Name, userDto.Password, userDto.Phone);
+                var userInfo = new User(userDto.Id, userDto.AccountName, userDto.Name, userDto.Password, userDto.Phone, userDto.Salt);
 
                 var accountCreated = _userService.CreateUser(userInfo);
                 return Created($"https://localhost/api/User/{accountCreated.id}", accountCreated);

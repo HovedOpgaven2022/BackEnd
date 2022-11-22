@@ -34,7 +34,7 @@ public class UserRepository : IUserRepository
         await _connection.OpenAsync();
 
         string sql = $"INSERT INTO {Table} (`uuid`, `name`, `phone`, `username`, `password`)" +
-                     $"VALUES ('{uuid}', '{user.name}', '{user.Phone}', '{user.username}', '{user.password}');" +
+                     $"VALUES ('{uuid}', '{user.name}', '{user.phone}', '{user.username}', '{user.password}');" +
                      $"SELECT * FROM {Table} WHERE `uuid`='{uuid}'";
 
         await using var command = new MySqlCommand(sql, _connection);
@@ -95,6 +95,6 @@ public class UserRepository : IUserRepository
     
     private static User ReaderToEnt(MySqlDataReader reader)
     {
-        return new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(5));
+        return new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(5), reader.GetString(6));
     }
 }
