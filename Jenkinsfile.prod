@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {        
+        stage("Reset containers"){
+            steps{
+                script {
+                    try {
+                        sh "docker compose -f docker-compose.prod.yml --env-file config/prod.env down"
+                    }
+                    finally {}
+                }
+            }
+        }
+        
+        stage("Deploy containers") {
+            steps {
+                sh "docker compose -f docker-compose.prod.yml --env-file config/prod.env up -d --build"
+            }
+        }
+
+        stage("Clean up"){
+            steps {
+                sh "docker system prune -af --volumes"
+            }
+        }
+    }
+}
