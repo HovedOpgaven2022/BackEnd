@@ -4,8 +4,8 @@ services:
   api:
     build:
       context: ""
-      dockerfile: Dockerfile
-    image: "localhost:7002/ebb-backend-test_api:${IMAGE_TAG}"
+      dockerfile: Dockerfile.dev
+    image: "localhost:7002/photo-backend-dev:${IMAGE_TAG}"
     container_name: "${CONT_NAME}"
     ports:
       - "${PORT}:80"
