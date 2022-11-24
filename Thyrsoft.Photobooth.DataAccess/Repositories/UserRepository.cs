@@ -82,7 +82,7 @@ public class UserRepository : IUserRepository
         User? ent = null;
         await _connection.OpenAsync();
 
-        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`, `salt`)" +
+        string sql = $"SELECT * FROM {Table} " +
                      $"WHERE `phone`='{phone}'";
 
         await using var command = new MySqlCommand(sql, _connection);
@@ -110,6 +110,6 @@ public class UserRepository : IUserRepository
     
     private static User ReaderToEnt(MySqlDataReader reader)
     {
-        return new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(5), reader.GetString(6));
+        return new User(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
     }
 }
