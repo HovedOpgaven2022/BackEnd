@@ -26,7 +26,7 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
         {
             try
             {
-                var userInfo = new User(userDto.Id, userDto.AccountName, userDto.Name, userDto.Password, userDto.Phone);
+                var userInfo = new User(userDto.Id, userDto.AccountName, userDto.Name, userDto.Password, userDto.Phone, userDto.Salt);
 
                 var accountCreated = _userService.CreateUser(userInfo);
                 return Created($"https://localhost/api/User/{accountCreated.id}", accountCreated);
@@ -50,6 +50,19 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
             }
         }
 
+        [HttpPost(nameof(GetSalt) + "/{username}")]
+        public ActionResult<string?> GetSalt(string username)
+        {
+            try
+            {
+                return Ok(_userService.GetSalt(username));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        
         [HttpGet]
         public ActionResult<UserDTO> GetUserByName(string name)
         {
@@ -69,19 +82,6 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
             try
             {
                 return Ok(_userService.GetUserByUsername(username));
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500, e.Message);
-            }
-        }
-        
-        [HttpGet]
-        public ActionResult<UserDTO> GetUserByEmail(string email)
-        {
-            try
-            {
-                return Ok(_userService.GetUserByEmail(email));
             }
             catch (Exception e)
             {

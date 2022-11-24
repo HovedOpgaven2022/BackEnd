@@ -8,4 +8,5 @@ public class UserDTO
     public string Phone { get; set; }
     public string AccountName { get; set; }
     public string Password { get; set; }
+    public string Salt { get; set; }
 }

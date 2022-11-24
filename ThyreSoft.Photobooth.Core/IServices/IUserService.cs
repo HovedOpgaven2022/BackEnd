@@ -9,4 +9,5 @@ public interface IUserService
     public User GetUserByEmail(string email);
     public User GetUserByPhone(string phone);
     public User Login(string username, string password);
+    public string GetSalt(string username);
 }
