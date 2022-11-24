@@ -99,7 +99,7 @@ public class UserRepository : IUserRepository
         await _connection.OpenAsync();
 
         string sql = $"SELECT `salt` FROM {Table} " +
-                     $"WHERE `username`={username}";
+                     $"WHERE `username`='{username}'";
 
         await using var command = new MySqlCommand(sql, _connection);
         await using var reader = await command.ExecuteReaderAsync();
