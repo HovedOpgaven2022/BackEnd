@@ -22,15 +22,10 @@ public class UserService : IUserService
     {
         return _repo.GetUserByUsername(username).Result;
     }
-    
+
     public User GetUserByName(string username)
     {
         return _repo.GetUserByName(username).Result;
-    }
-
-    public User GetUserByEmail(string email)
-    {
-        return _repo.GetUserByEmail(email).Result;
     }
 
     public User GetUserByPhone(string phone)
