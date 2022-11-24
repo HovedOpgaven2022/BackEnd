@@ -21,8 +21,14 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
-        public ActionResult<UserDTO> createUser([FromBody] UserDTO userDto)
+        [HttpGet]
+        public ActionResult<UserDTO> TestMethod()
+        {
+            return Ok(new UserDTO());
+        }
+
+        [HttpPost(nameof(CreateUser))]
+        public ActionResult<UserDTO> CreateUser([FromBody] UserDTO userDto)
         {
             try
             {
