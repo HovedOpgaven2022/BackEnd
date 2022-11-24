@@ -8,4 +8,4 @@ services:
     image: "localhost:7002/photo-backend-dev:${IMAGE_TAG}"
     container_name: "${CONT_NAME}"
     ports:
-      - "${PORT}:5064"
+      - "${PORT}:7159"
