@@ -62,6 +62,44 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
+        
+        [HttpGet]
+        public ActionResult<UserDTO> GetUserByName(string name)
+        {
+            try
+            {
+                return Ok(_userService.GetUserByUsername(name));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
 
+        [HttpGet]
+        public ActionResult<UserDTO> GetUserByUsername(string username)
+        {
+            try
+            {
+                return Ok(_userService.GetUserByUsername(username));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        [HttpGet]
+        public ActionResult<UserDTO> GetUserByPhone(string phone)
+        {
+            try
+            {
+                return Ok(_userService.GetUserByPhone(phone));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
     }
 }

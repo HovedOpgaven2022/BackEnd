@@ -34,7 +34,7 @@ public class UserRepository : IUserRepository
         await _connection.OpenAsync();
 
         string sql = $"INSERT INTO {Table} (`uuid`, `name`, `phone`, `username`, `password`, `salt`) " +
-                     $"VALUES ('{uuid}', '{user.name}', '{user.phone}', '{user.username}', '{user.password}', '{user.salt}'); " +
+                     $"VALUES ('{uuid}', '{user.name}', '{user.phone}', '{user.username}', '{user.password}', '{user.salt}'); " 
                      $"SELECT * FROM {Table} WHERE `uuid`='{uuid}'";
 
         await using var command = new MySqlCommand(sql, _connection);
@@ -106,6 +106,22 @@ public class UserRepository : IUserRepository
         while (await reader.ReadAsync()) res = reader.GetString(0);
 
         return res ?? throw new InvalidDataException("ERROR: User not found!");
+    }
+    
+    public async Task<User> GetUserByEmail(string email)
+    {
+        User? ent = null;
+        await _connection.OpenAsync();
+
+        string sql = $"SELECT * FROM {Table} (`uuid`, `username`, `email`, `password`)" +
+                     $"WHERE `email`='{email}'";
+
+        await using var command = new MySqlCommand(sql, _connection);
+        await using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
+        
+        await _connection.CloseAsync();
+        return ent ?? throw new InvalidDataException("ERROR: User not created");
     }
     
     private static User ReaderToEnt(MySqlDataReader reader)

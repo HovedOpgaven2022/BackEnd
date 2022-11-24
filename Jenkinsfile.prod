@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    
+
+    stages {
+
+        stage ("Build Backend") {
+            steps {
+                sh "dotnet build ."
+            }
+        }
+
+        stage("Reset containers"){
+            steps{
+                script {
+                    try {
+                        sh "docker compose -f docker-compose.prod.yml --env-file config/prod.env down"
+                    }
+                    finally {}
+                }
+            }
+        }
+
+        stage("Deploy containers") {
+            steps {
+                sh "docker compose -f docker-compose.prod.yml --env-file config/prod.env up -d --build"
+            }
+        }
+    }
+}
