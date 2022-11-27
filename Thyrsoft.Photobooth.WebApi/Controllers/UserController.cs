@@ -61,7 +61,7 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
         {
             try
             {
-                if (username != null) return _userService.GetSalt(username);
+                if (username != null) return Ok(_userService.GetSalt(username));
 
                 return BadRequest("User with given username does not exist");
             }
