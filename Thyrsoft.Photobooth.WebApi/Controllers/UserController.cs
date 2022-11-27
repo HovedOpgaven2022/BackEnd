@@ -56,7 +56,7 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
             }
         }
 
-        [HttpPost(nameof(GetSalt) + "/{username}")]
+        [HttpGet(nameof(GetSalt) + "/{username}")]
         public ActionResult<string> GetSalt(string username)
         {
             try
