@@ -62,7 +62,7 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
             try
             {
                 string salt = _userService.GetSalt(username);
-                if (salt == null || salt == "") return Ok("");
+                if (salt == null || salt == "") return BadRequest("Username was not found!");
                 return Ok();
             }
             catch (Exception e)
