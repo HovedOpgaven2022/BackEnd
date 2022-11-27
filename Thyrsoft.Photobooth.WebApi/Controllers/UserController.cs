@@ -57,11 +57,13 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
         }
 
         [HttpPost(nameof(GetSalt) + "/{username}")]
-        public ActionResult<string?> GetSalt(string username)
+        public ActionResult<string> GetSalt(string username)
         {
             try
             {
-                return Ok(_userService.GetSalt(username));
+                string salt = _userService.GetSalt(username);
+                if (salt == null || salt == "") return Ok("");
+                return Ok();
             }
             catch (Exception e)
             {
