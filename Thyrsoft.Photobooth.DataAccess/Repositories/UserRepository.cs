@@ -19,6 +19,8 @@ public class UserRepository : IUserRepository
 
         string sql = $"SELECT * FROM {Table} WHERE `username`='{username}' AND `password`='{password}';";
         
+        Console.WriteLine(sql);
+        
         await using var command = new MySqlCommand(sql, _connection);
         await using var reader = await command.ExecuteReaderAsync();
         while (await reader.ReadAsync()) ent = ReaderToEnt(reader);
