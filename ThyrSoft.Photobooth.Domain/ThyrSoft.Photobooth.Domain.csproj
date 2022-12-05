@@ -10,4 +10,8 @@
       <ProjectReference Include="..\ThyreSoft.Photobooth.Core\ThyreSoft.Photobooth.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.0" />
+    </ItemGroup>
+
 </Project>

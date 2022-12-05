@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,14 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IConfiguration _configuration;
+        private readonly IAuthService _authService;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IConfiguration configuration, IAuthService authService)
         {
             _userService = userService;
+            _configuration = configuration;
+            _authService = authService;
         }
 
         [HttpGet]
@@ -44,11 +49,15 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
         }
         
         [HttpPost(nameof(Login))]
-        public ActionResult<LoginDTO> Login([FromBody] LoginDTO loginDto)
+        public ActionResult Login([FromBody] LoginDTO loginDto)
         {
             try
             {
-                return Ok(_userService.Login(loginDto.AccountName, loginDto.Password));
+                User user = _userService.Login(loginDto.AccountName, loginDto.Password);
+
+                var tokenKey = Encoding.UTF8.GetBytes(_configuration["JWT:Key"]);
+
+                return Ok(new AuthResponse {UUID = user.id!, JWT = _authService.EncodeJwt(user, tokenKey)});
             }
             catch (Exception e)
             {
@@ -97,5 +106,10 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+    }
+    public class AuthResponse
+    {
+        public string UUID { get; set; }
+        public string JWT { get; set; }
     }
 }
