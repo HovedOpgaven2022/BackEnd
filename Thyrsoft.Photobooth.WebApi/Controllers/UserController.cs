@@ -56,15 +56,18 @@ namespace Thyrsoft.Photobooth.WebApi.Controllers
             }
         }
 
-        [HttpPost(nameof(GetSalt) + "/{username}")]
+        [HttpGet(nameof(GetSalt) + "/{username}")]
         public ActionResult<string?> GetSalt(string username)
         {
             try
             {
-                return Ok(_userService.GetSalt(username));
+                if (username != null) return Ok(_userService.GetSalt(username));
+
+                return BadRequest("User with given username does not exist");
             }
             catch (Exception e)
             {
+                Console.WriteLine(e);
                 return BadRequest(e.Message);
             }
         }
