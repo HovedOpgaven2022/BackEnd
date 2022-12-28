@@ -13,10 +13,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ThyreSoft.Photobooth.Core\ThyreSoft.Photobooth.Core.csproj" />
       <ProjectReference Include="..\Thyrsoft.Photobooth.DataAccess\Thyrsoft.Photobooth.DataAccess.csproj" />
       <ProjectReference Include="..\ThyrSoft.Photobooth.Domain\ThyrSoft.Photobooth.Domain.csproj" />
