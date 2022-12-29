@@ -15,8 +15,8 @@ public class PhotoRepository: IPhotoRepository
         await _connection.OpenAsync();
 
         string uuid = Guid.NewGuid().ToString();
-        string sql = $"INSERT INTO {Table} (`uuid`, `url`) VALUES ('{uuid}', '{photo.Url}');" +
-                     $"SELECT * FROM {Table} WHERE `uuid`='{uuid}'";
+        string sql = $"INSERT INTO {Table} (`id`, `url`) VALUES ('{uuid}', '{photo.Url}');" +
+                     $"SELECT * FROM {Table} WHERE `id`='{uuid}'";
 
         await using var command = new MySqlCommand(sql, _connection);
         await using var reader = await command.ExecuteReaderAsync();
